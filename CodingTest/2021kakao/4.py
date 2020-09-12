@@ -1,7 +1,7 @@
 import heapq
 
 def solution(n, s, a, b, fares):
-  ans = 2000001
+  ans = 20000001
   
   arr = [[1000001]*n for _ in range(n)]
   for i in range(n):
