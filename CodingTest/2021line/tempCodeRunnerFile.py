@@ -1,3 +1,2 @@
- nx]
-    cnt += 1
-    print('갔
+')
+# print(solution([3, 3, 3, 3, 3, 3, 3, 3, 3,
