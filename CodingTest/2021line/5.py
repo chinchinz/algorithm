@@ -46,7 +46,8 @@ def solution(cards):
           i+=1
           if i == len(cards) :
             # print('카드 없음 게임 그만')
-            reset = True
+            if sum(player) < 12:
+              reset = True
             break
 
       if sum(player) > 21:
@@ -84,10 +85,13 @@ def solution(cards):
       if 1 in dealer and sum(dealer) < 12:
         dealer.append(10)
       
+      if 1 in player and sum(player) < 12:
+        player.append(10)
+      
       # print('결과:', sum(player), sum(dealer))
       if sum(player) > sum(dealer):
         ans += 2
-      else:
+      elif sum(dealer) > sum(player):
         ans -= 2
       reset = True  
     # print('현재 스코어 : ', ans)
