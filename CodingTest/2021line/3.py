@@ -22,3 +22,4 @@ def solution(n):
 print(solution(73425))
 print(solution(10007))
 print(solution(9))
+print(solution(10000))

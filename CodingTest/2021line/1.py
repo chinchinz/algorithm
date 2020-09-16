@@ -1,16 +1,17 @@
+from collections import Counter
 def solution(boxes):
   ans = 0
   for i in range(len(boxes)):
     boxes[i].sort()
   boxes.sort()
-
+  print(boxes)
   for i,(a,b) in enumerate(boxes[:-1]):
     if a == b: continue
     if a in boxes[i+1]:
       boxes[i][1], boxes[i+1][0] = boxes[i+1][0], boxes[i][1]
     elif b in boxes[i+1]:
       boxes[i][0], boxes[i+1][0] = boxes[i+1][0], boxes[i][0]
-  
+  print(boxes)
   for a,b in boxes:
     if a!=b: ans += 1
 
