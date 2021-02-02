@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-//플로이드. Floyd-Warshall
+//플로이드. Floyd-Warshall 왜 INF 21억은 안돼
 #define INF         210000000
 #define MAX_N       100
 int n, m, f, t, d;
