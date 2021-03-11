@@ -51,7 +51,7 @@ void backtracking(int trieIdx, int loc, int row, int col) {
         r = row + mvY[m], c = col + mvX[m];
         if (r < 0 || r >= MAX_L || c < 0 || c >= MAX_L || sels[r][c] || trie[trieIdx].sub[maps[r][c]] == 0) continue;
         sels[r][c] = true;
-        str[loc] = maps[r][c] + 'A';
+        str[loc] = maps[r][c] + 'A'; 
         backtracking(trie[trieIdx].sub[maps[r][c]], loc + 1, r, c);
         sels[r][c] = false;
     }
@@ -80,26 +80,37 @@ int main() {
         }
         trie[c].end = true;
     }
-
-    scanf("%d", &Q);
-    while (Q--) {
-        for (i=0; i<MAX_L; ++i) {
-            scanf("%s", str);
-            for (j=0; j<MAX_L; ++j) maps[i][j] = str[j] - 'A';
+    printf("   ");
+    for (int i=0; i<26; ++i) printf("%c ", i+'A');
+    printf("\n");
+    for (int i=0; i<30; ++i) {
+        printf("%d: ", i);
+        for (int j=0; j<26; ++j) {
+            printf("%d ", trie[i].sub[j]);
         }
-        score = 0, maxLen = 0, found = 0, ++seq;
+        printf("\n");
     }
 
-    for (i=0; i<MAX_L; ++i) {
-        for (j=0; j<MAX_L; ++j) {
-            if (trie[0].sub[maps[i][j]] != 0) {
-                sels[i][j] = true;
-                str[0] = maps[i][j] + 'A';
-                backtracking(trie[0].sub[maps[i][j]], 1, i, j);
-                sels[i][j] = false;
-            }
-        }
-    }
+    // scanf("%d", &Q);
+    // while (Q--) {
+    //     for (i=0; i<MAX_L; ++i) {
+    //         scanf("%s", str);
+    //         for (j=0; j<MAX_L; ++j) maps[i][j] = str[j] - 'A';
+    //     }
+    //     score = 0, maxLen = 0, found = 0, ++seq;
 
+    //     for (i=0; i<MAX_L; ++i) {
+    //         for (j=0; j<MAX_L; ++j) {
+    //             if (trie[0].sub[maps[i][j]] != 0) {
+    //                 sels[i][j] = true;
+    //                 str[0] = maps[i][j] + 'A';
+    //                 backtracking(trie[0].sub[maps[i][j]], 1, i, j);
+    //                 sels[i][j] = false;
+    //             }
+    //         }
+    //     }
+
+    //     printf("%d %s %d\n", score, aStr, found);
+    // }
     return 0;
 }
